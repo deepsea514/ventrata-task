@@ -14,13 +14,25 @@ export interface Env {
 }
 
 router.all('/products', () => {
-    return new Response(JSON.stringify(products), { headers: { "Content-Type": "application/json" } })
+    return new Response(JSON.stringify(products), {
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true'
+        }
+    })
 });
 
 router.all('/product/:id', ({ params }) => {
     const product = products.find(product => product.id == params?.id);
     if (product)
-        return new Response(JSON.stringify(product), { headers: { "Content-Type": "application/json" } });
+        return new Response(JSON.stringify(product), {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true'
+            }
+        });
     new Response("404, not found!", { status: 404 })
 })
 
@@ -33,6 +45,17 @@ export default {
         env: Env,
         ctx: ExecutionContext
     ): Promise<Response> {
+        if (request.method === 'OPTIONS') {
+            return new Response(null, {
+                status: 204,
+                headers: {
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Origin': '*/*',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                }
+            });
+        }
         return router.handle(request);
     },
 };

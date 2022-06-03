@@ -23,7 +23,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 5,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 4.5,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -34,7 +39,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 2,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 1.8,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -45,7 +55,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 4,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 3.6,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -56,7 +71,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 1,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 0.92,
+                                currencyPrecision: 2
                             }
                         ]
                     }
@@ -65,7 +85,7 @@ export const products: Product[] = [
             {
                 id: "option-2",
                 name: "Option Two",
-                default: true,
+                default: false,
                 requiredContactFields: [
                     ContactField.fullName,
                     ContactField.emailAddress,
@@ -79,7 +99,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 10,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 9.2,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -90,7 +115,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 4,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 3.6,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -101,7 +131,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 8,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 7.4,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -112,7 +147,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 2,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 1.8,
+                                currencyPrecision: 2
                             }
                         ]
                     }
@@ -143,7 +183,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 30,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 26,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -154,7 +199,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 4,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 3.8,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -165,7 +215,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 20,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 18,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -176,7 +231,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 10,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 9.2,
+                                currencyPrecision: 2
                             }
                         ]
                     }
@@ -185,7 +245,7 @@ export const products: Product[] = [
             {
                 id: "option-2",
                 name: "Option Two",
-                default: true,
+                default: false,
                 requiredContactFields: [
                     ContactField.fullName,
                     ContactField.emailAddress,
@@ -199,7 +259,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 60,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 54,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -210,7 +275,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 40,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 36,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -221,7 +291,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 80,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 72,
+                                currencyPrecision: 2
                             }
                         ]
                     },
@@ -232,7 +307,12 @@ export const products: Product[] = [
                             {
                                 currency: "EUR",
                                 price: 20,
-                                currencyPrecision: 1
+                                currencyPrecision: 2
+                            },
+                            {
+                                currency: "USD",
+                                price: 18,
+                                currencyPrecision: 2
                             }
                         ]
                     }
