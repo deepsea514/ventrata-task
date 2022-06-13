@@ -2,3 +2,6 @@ name = "ventrata"
 main = "src/index.ts"
 compatibility_date = "2022-05-31"
 account_id = "b83bbf9f62bda7b8069a1328cfb47825"
+workers_dev = true
+[site]
+bucket = "./client/public"

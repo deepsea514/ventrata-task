@@ -20,7 +20,7 @@
 		product = null;
 		axios
 			.get<Product>(
-				`https://ventrata.blackstormy.workers.dev/product/${$bookingStore.productId}`
+				`https://ventrata.blackstormy.workers.dev/api/product/${$bookingStore.productId}`
 			)
 			.then(({ data }) => {
 				product = data;

@@ -8,7 +8,7 @@
 	onMount(() => {
 		loading = true;
 		axios
-			.get<Product[]>("https://ventrata.blackstormy.workers.dev/products")
+			.get<Product[]>("https://ventrata.blackstormy.workers.dev/api/products")
 			.then(({ data }) => {
 				products = data;
 			})

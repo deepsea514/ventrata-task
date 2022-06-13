@@ -1,10 +1,20 @@
 import { Router } from 'itty-router'
 import { products } from './mockups/products';
+import {
+    getAssetFromKV,
+    mapRequestToAsset,
+    serveSinglePageApp,
+    NotFoundError,
+    MethodNotAllowedError
+} from '@cloudflare/kv-asset-handler'
+import manifestJSON from '../client/public/manifest.json';
+const assetManifest = JSON.stringify(manifestJSON)
+
 const router = Router();
 
 export interface Env {
     // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-    NAMESPACE: KVNamespace;
+    KVNamespace: KVNamespace;
     //
     // Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
     // MY_DURABLE_OBJECT: DurableObjectNamespace;
@@ -13,7 +23,7 @@ export interface Env {
     // MY_BUCKET: R2Bucket;
 }
 
-router.all('/products', () => {
+router.all('/api/products', () => {
     return new Response(JSON.stringify(products), {
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +33,7 @@ router.all('/products', () => {
     })
 });
 
-router.all('/product/:id', ({ params }) => {
+router.all('/api/product/:id', ({ params }) => {
     const product = products.find(product => product.id == params?.id);
     if (product)
         return new Response(JSON.stringify(product), {
@@ -36,7 +46,9 @@ router.all('/product/:id', ({ params }) => {
     new Response("404, not found!", { status: 404 })
 })
 
-router.all("*", () => new Response("404, not found!", { status: 404 }))
+router.all("*", async () => {
+    new Response("404, not found!", { status: 404 })
+})
 
 
 export default {
@@ -56,6 +68,36 @@ export default {
                 }
             });
         }
+
+        if (!request.url.includes('/api')) {
+            try {
+                return await getAssetFromKV(
+                    {
+                        request,
+                        waitUntil: (promise) => ctx.waitUntil(promise),
+                    },
+                    // { mapRequestToAsset: serveSinglePageApp, }
+                    // { mapRequestToAsset: mapRequestToAsset }
+                    {
+                        // ASSET_NAMESPACE: env.KVNamespace,
+                        // ASSET_MANIFEST: assetManifest,
+                        cacheControl: {
+                            bypassCache: true,
+                        }
+                    }
+                )
+            } catch (error) {
+                if (error instanceof NotFoundError) {
+                    return new Response("404, not found!", { status: 404 })
+                } else if (error instanceof MethodNotAllowedError) {
+                    return new Response("404, not found!", { status: 404 })
+                } else {
+                    console.error(error)
+                    return new Response('An unexpected error occurred', { status: 500 })
+                }
+            }
+        }
+
         return router.handle(request);
     },
 };

@@ -118,7 +118,7 @@
         if (params && params.product_id) {
             axios
                 .get<Product>(
-                    `https://ventrata.blackstormy.workers.dev/product/${params.product_id}`
+                    `https://ventrata.blackstormy.workers.dev/api/product/${params.product_id}`
                 )
                 .then(({ data }) => {
                     product = data;
